@@ -44,17 +44,3 @@ class CreateShortenSerializer(serializers.Serializer):
             return shorten_url
         else:
             return shorten_url_q.first()
-
-
-class OriginalURLSerializer(serializers.Serializer):
-    shorten_url = serializers.CharField()
-
-    def create(self, validated_data):
-        shorten_url_str = validated_data.get('shorten_url')
-        clean_shorten_url_str = shorten_url_str.split("/")[-1]
-        shorten_url_q = ShortenUrl.objects.filter(
-            Q(shorten_url=shorten_url_str) | Q(pregenerate_url__shorten_url_hash=clean_shorten_url_str)
-        )
-
-        if shorten_url_q.exists():
-            return shorten_url_q.first()
