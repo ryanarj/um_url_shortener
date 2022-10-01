@@ -5,13 +5,13 @@ A simple django restful backend to support a URL shortener feature.
 
 ## Design
 
-Database: I went with a django backend for this exercise, but would have not used a 
-Relational database in postgres, but a NOSQL approach
+Database: I went with a django backend for this exercise because I am familar with django, but would have not used a 
+relational database in postgres, but a NoSQL one as that is a faster lookup for key-value pairs and would be perfect for this product.
 
 Pregenerate URL: After researching about urls shorteners one issue that can arise is latency of creating a new shortener
-so I prebaked a few hundreds. This should run a cron-job 
+so I prebaked a few hundreds. This should run on a cron-job nightly or hourly depending on traffic.
 
-UI: I did not complete a django forms, instead decided to use POSTMAN to test the API.
+UI: I did not complete a django forms or any interface, instead decided to use POSTMAN to test the API.
 
 ##  Time it took to complete
 
